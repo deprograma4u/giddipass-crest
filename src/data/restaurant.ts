@@ -66,10 +66,23 @@ const ORDER_MESSAGE = "Hello Giddipass Crest, I'd like to place an order: ";
 const BOOKING_MESSAGE =
   "Hello Giddipass Crest, I'd like to reserve a table. Number of people: __  Day and time: __";
 
-/** WhatsApp link with a pre-filled table reservation message. */
-export function bookingLink() {
-  return `https://wa.me/${restaurant.phone.whatsapp}?text=${encodeURIComponent(BOOKING_MESSAGE)}`;
+/** WhatsApp link with a pre-filled table reservation message (or a custom message). */
+export function bookingLink(message: string = BOOKING_MESSAGE) {
+  return `https://wa.me/${restaurant.phone.whatsapp}?text=${encodeURIComponent(message)}`;
 }
+
+/* ---------- Match nights strip ----------
+ * Update the title each week (e.g. the actual fixture: "Real Madrid vs Arsenal, Tuesday 8 PM").
+ */
+export const matchNights = {
+  eyebrow: "Match nights",
+  title: "Champions League on the big screen this week.",
+  text: "Cold drinks, good food and the loudest cheers in town. Book your spot.",
+  cta: "Book your spot",
+  image: "/images/gallery-match-night.webp",
+  bookingMessage:
+    "Hello Giddipass Crest, I'd like to book a spot for the match. Number of people: __  Which match: __",
+};
 
 /** WhatsApp link with a pre-filled order message (optionally including a dish). */
 export function whatsappLink(dish?: string) {
@@ -179,7 +192,7 @@ export const rooftop = {
   gallery: [
     { src: "/images/gallery-rooftop-evening.webp", alt: "Rooftop view as the sun goes down" },
     { src: "/images/jollof-rice.webp", alt: "Jollof rice with grilled skewers" },
-    { src: "/images/gallery-match-night.webp", alt: "Friends watching a football match" },
+    { src: "/images/fried-rice-chicken.webp", alt: "Fried rice and chicken" },
     { src: "/images/drinks.webp", alt: "Cold drinks on the table" },
     { src: "/images/grills.webp", alt: "Skewers fresh off the grill" },
     { src: "/images/banku-tilapia.webp", alt: "Grilled tilapia" },
